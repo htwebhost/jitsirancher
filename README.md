@@ -15,4 +15,8 @@ I ended up using the kubernetes yaml files from the jitsi-meet example main repo
 
 2. The next step is to then go into the jitsi-project namespace you created and then click on the Resources drop down menu then click on Secrets. Inside of secrets we need to create a new secret. I will give the secret a name of jitsi-config. Under scope make sure Available to all namespaces in this project is selected. Under Secrets Values in Key add these three keys one per a line JICOFO_COMPONENT_SECRET JICOFO_AUTH_PASSWORD and JVB_AUTH_PASSWORD for the values of each key input some random data EX: 8uyrig38756 then click save.
 
-3.
+3. Next click on Resources Secrets then click on Certificates here you need to add a certificate either a legit certificate or self signed for my example I created a self signed one. The reason I had to do this was because the Rancher automatic selfsigned cert for the loadbalancer did not work for me and I had to use a self signed one.
+
+4. Now we need to go into jitsi-project namespace by clicking on it. You should see Workloads, Load Balancing, Service Discovery, Volumes at the top click on Service Discovery. At the top right click on Import YAML where the 1 is at the top paste in the yaml code for jvb-service.yaml Under Import Mode select Namespace: in the box to the right click Add to a new namespace then in the box type jitsi then click Import at the bottom.
+
+5. 
