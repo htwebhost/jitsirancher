@@ -8,3 +8,11 @@ I am writing this Project to help those who need to get a simple jitsi-meet inst
 
 I ended up using the kubernetes yaml files from the jitsi-meet example main repo as a base to do the install. This install will install an instance on jitsi-meet with all the componets running in a single pod. I have not figured out how to scale the jvb componet yet as I am still learning rancher, kubernetes, and docker, however this should help you get a basic install going. Anyone who has ideas of how to scale this in rancher please comment. Later I hope to have a youtube tutorial up on how to do this and will have a link.
 
+
+# Steps to Install jitsi-meet single pod in Rancher Cluster
+
+1. First thing to do is log into your Rancher instance and create a Projects/Namespaces named EX: jitsi-project or whatever you want to call it inside the cluster you want to deploy to. For the reset of this tutorial I will use jitsi-project.
+
+2. The next step is to then go into the jitsi-project namespace you created and then click on the Resources drop down menu then click on Secrets. Inside of secrets we need to create a new secret. I will give the secret a name of jitsi-config. Under scope make sure Available to all namespaces in this project is selected. Under Secrets Values in Key add these three keys one per a line JICOFO_COMPONENT_SECRET JICOFO_AUTH_PASSWORD and JVB_AUTH_PASSWORD for the values of each key input some random data EX: 8uyrig38756 then click save.
+
+3.
