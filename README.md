@@ -1,7 +1,7 @@
 # jitsirancher
 Project to Install and run simple Jitsi-meet instance in Rancher
 
-To complete this project you will need a Rancher Kubernetes cluster up and running if you do not have one up it is not to difficult to spin one up. I recommend checking out Adrian Goins channel on how to spin a standalone rancher single node here 
+To complete this project you will need a Rancher Kubernetes cluster up and running if you do not have one up it is not to difficult to spin one up. I recommend checking out Adrian Goins channel on how to spin up a standalone rancher single node here 
 https://www.youtube.com/watch?v=BW74EY56tUs
 
 I am writing this Project to help those who need to get a simple jitsi-meet instance running in rancher. I looked around and was not able to find exactly what I was looking for, however there are several projects for jitsi running in kubernetes and I took a lot of my resources from the projects of https://github.com/sunsingerus/kubernetes-jitsi-install and the Kbernetes example on the main docker jitsi-meet install page of github https://github.com/jitsi/docker-jitsi-meet/tree/master/examples/kubernetes
