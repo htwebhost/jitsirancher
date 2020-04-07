@@ -13,7 +13,7 @@ I ended up using the kubernetes yaml files from the jitsi-meet example main repo
 
 1. First thing to do is log into your Rancher instance and create a Projects/Namespaces named EX: jitsi-project or whatever you want to call it inside the cluster you want to deploy to. For the reset of this tutorial I will use jitsi-project.
 
-2. The next step is to then go into the jitsi-project namespace you created and then click on the Resources drop down menu then click on Secrets. Inside of secrets we need to create a new secret. I will give the secret a name of jitsi-config. Under scope make sure Available to all namespaces in this project is selected. Under Secrets Values in Key add these three keys one per a line JICOFO_COMPONENT_SECRET JICOFO_AUTH_PASSWORD and JVB_AUTH_PASSWORD for the values of each key input some random data EX: 8uyrig38756 then click save.
+2. The next step is to then go into the jitsi-project namespace you created and then click on the Resources drop down menu then click on Secrets. Inside of secrets we need to create a new secret. I will give the secret a name of jitsi-config. Under scope make sure Available to all namespaces in this project is selected. Under Secrets Values in Key add these three keys one per a line JICOFO_COMPONENT_SECRET, JICOFO_AUTH_PASSWORD, and JVB_AUTH_PASSWORD for the values of each key input some random data EX: 8uyrig38756 then click save.
 
 3. Next click on Resources Secrets then click on Certificates here you need to add a certificate either a legit certificate or self signed for my example I created a self signed one. The reason I had to do this was because the Rancher automatic selfsigned cert for the loadbalancer did not work for me and I had to use a self signed one.
 
@@ -21,5 +21,9 @@ I ended up using the kubernetes yaml files from the jitsi-meet example main repo
 
 5. Once the YAML is done importing go click on Workloads. At the top click on Import YAML where the 1 is at the top paste in the yaml code for deployment.yaml Under Import Mode select Project: in the box to the right click the drop down selector and select jitsi since we created it in the last step we don't need to create it again. Then click Import at the bottom.
 
+6. It should now fire up a pod with jitsi-meet componets running inside. Now click on Load Balancing then at the top right click Add Ingress in Name field give a name to your loadbalancer EX:Jitsi-LB. Under Rules select Specify a hostname to use EX:sub1.yourdomain.com then add two workloads for Path leave blank then Target select jitsi for both for the first workload add Port 80 then for the second add Port 443. Below expand SSL/TLS Certificates and click Choose a certificate in the drop down to the right select the certificate you setup for your domain or subdomain earlier. In the Host field below type in your domain EX:sub1.yourdomain.com then click Save at the bottom.
 
+7. Now all you should have to do is create an A record in DNS to point your domain or subdomain to the loadbalancers ip address. Access your jitsi instance at EX: https://sub1.yourdomain.com
+
+If anyone wants to help with this project or knows of a better way to expand it to be more HA I am would be greatful for your input.
 
