@@ -21,9 +21,9 @@ I ended up using the kubernetes yaml files from the jitsi-meet example main repo
 
 5. Once the YAML is done importing go click on Workloads. At the top click on Import YAML where the 1 is at the top paste in the yaml code for deployment.yaml Under Import Mode select Project: in the box to the right click the drop down selector and select jitsi since we created it in the last step we don't need to create it again. Then click Import at the bottom.
 
-6. It should now fire up a pod with jitsi-meet componets running inside. Now click on Load Balancing then at the top right click Add Ingress in Name field give a name to your loadbalancer EX:Jitsi-LB. Under Rules select Specify a hostname to use EX:sub1.yourdomain.com then add two workloads for Path leave blank then Target select jitsi for both for the first workload add Port 80 then for the second add Port 443. Below expand SSL/TLS Certificates and click Choose a certificate in the drop down to the right select the certificate you setup for your domain or subdomain earlier. In the Host field below type in your domain EX:sub1.yourdomain.com then click Save at the bottom.
+6. It should now fire up a pod with jitsi-meet componets running inside. Now click on Load Balancing then at the top right click Add Ingress in Name field give a name to your load balancer EX:JitsiLB. Under Rules select Specify a hostname to use then type in your domain or subdomain EX:sub1.yourdomain.com then add two workloads for Path leave blank then Target select jitsi for both for the first workload add Port 80 then for the second add Port 443. Below expand SSL/TLS Certificates and click Choose a certificate in the drop down to the right select the certificate you setup for your domain or subdomain earlier. In the Host field below type in your domain EX:sub1.yourdomain.com then click Save at the bottom.
 
-7. Now all you should have to do is create an A record in DNS to point your domain or subdomain to the loadbalancers ip address. Access your jitsi instance at EX: https://sub1.yourdomain.com
+7. Now all you should have to do is create an A record in DNS to point your domain or subdomain to the load balancers ip address. Access your jitsi instance at EX: https://sub1.yourdomain.com
 
 If anyone wants to help with this project or knows of a better way to expand it to be more HA I am would be greatful for your input.
 
