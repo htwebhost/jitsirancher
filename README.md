@@ -25,5 +25,5 @@ I ended up using the kubernetes yaml files from the jitsi-meet example main repo
 
 7. Now all you should have to do is create an A record in DNS to point your domain or subdomain to the load balancers ip address. Access your jitsi instance at EX: https://sub1.yourdomain.com
 
-If anyone wants to help with this project or knows of a better way to expand it to be more HA I am would be greatful for your input.
+If anyone wants to help with this project or knows of a better way to expand it to be more HA I would be greatful for your input.
 
